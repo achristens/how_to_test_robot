@@ -9,6 +9,7 @@ class TestRobot < MiniTest::Test
     # arrange
     robot = Robot.new
     robot.foreign_model  = true
+    robot.vintage_model  = false
     robot.needs_repairs  = true
 
     # act
@@ -24,6 +25,7 @@ class TestRobot < MiniTest::Test
     # skip
     robot = Robot.new
     robot.vintage_model  = true
+    robot.foreign_model  = false
     robot.needs_repairs  = true
 
     # act
@@ -35,21 +37,32 @@ class TestRobot < MiniTest::Test
   end
 
   def test_that_standard_robot_needing_repairs_sent_to_station_3
-    skip
+    # skip
     # arrange
+    robot = Robot.new
+    robot.needs_repairs  = true
+    robot.vintage_model  = false
+    robot.foreign_model  = false
 
     # act
+    which_station = robot.station
 
     # assert
+    expected = 3
+    assert_equal(expected, which_station)
   end
 
   def test_that_robot_in_good_condition_sent_to_station_4
-    skip
-    # arrange
+    # skip
+    robot = Robot.new
+    robot.needs_repairs  = false
 
     # act
+    which_station = robot.station
 
     # assert
+    expected = 4
+    assert_equal(expected, which_station)
   end
 
   def test_prioritize_tasks_with_empty_todo_list_returns_negative_one
