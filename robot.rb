@@ -30,3 +30,9 @@ class Robot
   end
 
 end
+# robot = Robot.new
+#
+# robot.foreign_model  = true
+# robot.needs_repairs  = true
+#
+# puts robot.inspect
