@@ -31,8 +31,14 @@ class Robot
 
 end
 # robot = Robot.new
+# # puts robot.inspect
+# task = "Take out garbage"
+# robot.todos << task
+# puts robot.todos.inspect
+
+
+
 #
 # robot.foreign_model  = true
 # robot.needs_repairs  = true
 #
-# puts robot.inspect
